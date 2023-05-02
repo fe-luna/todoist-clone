@@ -1,0 +1,7 @@
+@use "src/styles/color.scss";
+@use "src/styles/size.scss";
+
+.navbar {
+  background-color: color.$primary;
+  height: size.$navbarHeight;
+}
