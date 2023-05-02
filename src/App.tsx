@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
+import Layout from "./layouts";
+import FiltersLabels from "./pages/filters-labels";
+import Inbox from "./pages/inbox";
+import Today from "./pages/today";
+import Upcoming from "./pages/upcoming";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Navigate to="/app/today" replace />,
+    },
+    {
+      path: "/app",
+      element: <Layout />,
+      children: [
+        { path: "project/:id", element: <Inbox /> },
+        { path: "today", element: <Today /> },
+        { path: "upcoming", element: <Upcoming /> },
+        { path: "filters-labels", element: <FiltersLabels /> },
+      ],
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
 }
 
 export default App;
