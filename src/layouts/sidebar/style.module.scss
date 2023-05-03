@@ -1,0 +1,12 @@
+.sidebar {
+  background-color: #fafafa;
+}
+
+.handle {
+  &:hover,
+  &:active {
+    width: 5px !important;
+    right: -2px !important;
+    background-color: #eee;
+  }
+}
