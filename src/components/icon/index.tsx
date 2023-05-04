@@ -1,6 +1,7 @@
 export { AddIcon } from "./_add";
 export { CloseIcon } from "./_close";
 export { HomeIcon } from "./_home";
+export { LogoIcon } from "./_logo";
 export { MenuIcon } from "./_menu";
 export { NotificationIcon } from "./_notification";
 export { ProductivityIcon } from "./_productivity";

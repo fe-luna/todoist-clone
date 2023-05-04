@@ -4,8 +4,8 @@ import {
   RouterProvider,
   Navigate,
 } from "react-router-dom";
-import { ChakraProvider } from "@chakra-ui/react";
 import Layout from "layouts";
+import LoadingScreen from "components/loading-screen";
 import FiltersLabels from "pages/filters-labels";
 import Inbox from "pages/inbox";
 import Today from "pages/today";
@@ -20,7 +20,7 @@ function App() {
   }, []);
 
   if (!loaded) {
-    return null;
+    return <LoadingScreen />;
   }
 
   const router = createBrowserRouter([
@@ -40,11 +40,7 @@ function App() {
     },
   ]);
 
-  return (
-    <ChakraProvider>
-      <RouterProvider router={router} />
-    </ChakraProvider>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
