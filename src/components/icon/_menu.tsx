@@ -2,7 +2,7 @@ import React from "react";
 import { Icon, IconProps } from "@chakra-ui/icons";
 
 const MenuIcon = (props: IconProps) => (
-  <Icon viewBox="0 0 24 24" {...props}>
+  <Icon viewBox="0 0 24 24" boxSize={6} {...props}>
     <path
       fill="currentColor"
       fillRule="evenodd"

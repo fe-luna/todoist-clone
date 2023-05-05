@@ -2,7 +2,7 @@ import React from "react";
 import { Icon, IconProps } from "@chakra-ui/icons";
 
 const LogoIcon = (props: IconProps) => (
-  <Icon viewBox="0 0 64 64" {...props}>
+  <Icon viewBox="0 0 64 64" boxSize={6} {...props}>
     <g fill="none" fillRule="evenodd">
       <path
         fill="#E44332"
