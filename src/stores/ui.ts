@@ -8,15 +8,14 @@ export interface UIState {
   setSidebarWidth: (width: number) => void;
 }
 
-export const createUISlice: StateCreator<UIState, [], [], UIState> = (set) => ({
+export const createUISlice: StateCreator<UIState> = (set) => ({
   sidebarWidth: 0,
   getSidebarWidth: async () => {
     const width = await localForage.getItem<number>(STORAGE_KEY.SIDEBAR_WIDTH);
     set({ sidebarWidth: width || UI.SIDEBAR_DEFAULT_WIDTH });
   },
-  setSidebarWidth: (width) =>
-    set(() => {
-      localForage.setItem(STORAGE_KEY.SIDEBAR_WIDTH, width);
-      return { sidebarWidth: width };
-    }),
+  setSidebarWidth: (width) => {
+    localForage.setItem(STORAGE_KEY.SIDEBAR_WIDTH, width);
+    set({ sidebarWidth: width });
+  },
 });
