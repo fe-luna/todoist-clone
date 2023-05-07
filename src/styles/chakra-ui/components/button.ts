@@ -21,7 +21,7 @@ const ButtonTheme = defineStyleConfig({
     },
   },
   variants: {
-    solid: defineStyle((props) => {
+    solid: (props) => {
       const { colorScheme } = props;
       if (colorScheme === "primary") {
         return {
@@ -37,8 +37,8 @@ const ButtonTheme = defineStyleConfig({
           bg: "#e5e5e5",
         },
       };
-    }),
-    ghost: defineStyle((props) => {
+    },
+    ghost: (props) => {
       const { colorScheme } = props;
       if (colorScheme === "alpha") {
         return {
@@ -68,8 +68,8 @@ const ButtonTheme = defineStyleConfig({
           bg: "#eeeeee",
         },
       };
-    }),
-    outline: defineStyle((props) => {
+    },
+    outline: (props) => {
       const { colorScheme } = props;
       const style = defineStyle({
         bg: "transparent",
@@ -84,7 +84,7 @@ const ButtonTheme = defineStyleConfig({
         style.borderColor = "primary.500";
       }
       return style;
-    }),
+    },
   },
   defaultProps: {
     colorScheme: "default",

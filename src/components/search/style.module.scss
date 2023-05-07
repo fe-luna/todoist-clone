@@ -1,0 +1,23 @@
+.tip {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 18px;
+  height: 18px;
+  color: #444;
+  line-height: 18px;
+  text-align: center;
+  background: #f5f5f5;
+  border-radius: 2px;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.tipHover {
+  opacity: 1;
+}
+
+.rightBtn {
+  position: relative;
+  right: 22px;
+}
