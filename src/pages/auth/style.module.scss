@@ -1,0 +1,20 @@
+.container {
+  width: 940px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.logo {
+  svg {
+    width: 127px;
+    height: 35px;
+  }
+}
+
+.title {
+  max-width: 220px;
+  padding-top: 64px;
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: bold;
+}

@@ -7,6 +7,7 @@ import {
 import Layout from "layouts";
 import LoadingScreen from "components/loading-screen";
 import FiltersLabels from "pages/filters-labels";
+import Auth from "pages/auth";
 import Inbox from "pages/inbox";
 import Projects from "pages/projects";
 import Today from "pages/today";
@@ -27,7 +28,10 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Navigate to="/app/today" replace />,
+      children: [
+        { path: "", element: <Navigate to="/auth/login" replace /> },
+        { path: "auth/:action", element: <Auth /> },
+      ],
     },
     {
       path: "/app",
