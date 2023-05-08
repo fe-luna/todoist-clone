@@ -1,6 +1,8 @@
 export { AddIcon } from "./_add";
 export { CloseIcon } from "./_close";
+export { FiltersIcon } from "./_filters";
 export { HomeIcon } from "./_home";
+export { InboxIcon } from "./_inbox";
 export { LogoIcon } from "./_logo";
 export { MenuIcon } from "./_menu";
 export { NotificationIcon } from "./_notification";
@@ -8,3 +10,5 @@ export { ProductivityIcon } from "./_productivity";
 export { QuestionIcon } from "./_question";
 export { SearchIcon } from "./_search";
 export { StarIcon } from "./_star";
+export { TodayIcon } from "./_today";
+export { UpcomingIcon } from "./_upcoming";

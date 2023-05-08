@@ -1,10 +1,14 @@
-import React, { useCallback, useMemo } from "react";
+import React, { ReactNode, useCallback, useMemo } from "react";
 import { Resizable, ResizeCallback } from "re-resizable";
 import { UI } from "consts";
 import { useStore } from "stores";
 import styles from "./style.module.scss";
 
-function Sidebar() {
+interface Props {
+  children: ReactNode;
+}
+
+function Sidebar(props: Props) {
   const sidebarWidth = useStore((state) => state.sidebarWidth);
   const setSidebarWidth = useStore((state) => state.setSidebarWidth);
   const defaultSize = useMemo(
@@ -39,7 +43,7 @@ function Sidebar() {
       maxWidth={UI.SIDEBAR_MAX_WIDTH}
       onResize={handleResize}
     >
-      sidebar
+      {props.children}
     </Resizable>
   );
 }
