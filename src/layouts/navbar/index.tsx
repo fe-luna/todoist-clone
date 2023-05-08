@@ -1,5 +1,13 @@
 import React from "react";
-import { IconButton, Button, Avatar, ButtonProps } from "@chakra-ui/react";
+import {
+  IconButton,
+  Button,
+  Avatar,
+  ButtonProps,
+  Flex,
+  Spacer,
+  HStack,
+} from "@chakra-ui/react";
 import {
   AddIcon,
   HomeIcon,
@@ -15,41 +23,63 @@ import styles from "./style.module.scss";
 function Navbar() {
   const btnProps: ButtonProps = { colorScheme: "alpha", variant: "ghost" };
   return (
-    <div className={styles.navbar}>
-      <IconButton
-        aria-label="Open menu"
-        icon={<MenuIcon />}
-        size="sm"
-        {...btnProps}
-      />
-      <IconButton
-        aria-label="Go to home"
-        icon={<HomeIcon />}
-        size="sm"
-        {...btnProps}
-      />
-      <div className={styles.search}>
+    <Flex className={styles.navbar} alignItems="center">
+      <HStack spacing="4px">
+        <IconButton
+          aria-label="Open menu"
+          icon={<MenuIcon />}
+          size="sm"
+          {...btnProps}
+        />
+        <IconButton
+          aria-label="Go to home"
+          icon={<HomeIcon />}
+          size="sm"
+          {...btnProps}
+        />
+      </HStack>
+      <Spacer className={styles.search} marginLeft={1.5}>
         <Search />
-      </div>
-      <Button leftIcon={<StarIcon />} size="sm" px={2} isActive {...btnProps}>
+      </Spacer>
+      <Button
+        leftIcon={<StarIcon />}
+        size="sm"
+        isActive
+        iconSpacing={1}
+        marginRight={3}
+        paddingLeft={0.5}
+        borderRadius={5}
+        {...btnProps}
+      >
         Upgrade to Pro
       </Button>
-      <IconButton aria-label="Add task" icon={<AddIcon />} {...btnProps} />
-      <Button leftIcon={<ProductivityIcon />} {...btnProps} px={1}>
-        0/5
-      </Button>
-      <IconButton
-        aria-label="Open help & information"
-        icon={<QuestionIcon />}
-        {...btnProps}
-      />
-      <IconButton
-        aria-label="Open notifications"
-        icon={<NotificationIcon />}
-        {...btnProps}
-      />
-      <Avatar name="Luna" size="sm" />
-    </div>
+      <HStack spacing="5px">
+        <IconButton aria-label="Add task" icon={<AddIcon />} {...btnProps} />
+        <Button
+          leftIcon={<ProductivityIcon />}
+          px={1.5}
+          fontWeight={400}
+          iconSpacing={1.5}
+          borderRadius={3}
+          {...btnProps}
+        >
+          0/5
+        </Button>
+        <IconButton
+          aria-label="Open help & information"
+          icon={<QuestionIcon />}
+          borderRadius={3}
+          {...btnProps}
+        />
+        <IconButton
+          aria-label="Open notifications"
+          icon={<NotificationIcon />}
+          borderRadius={3}
+          {...btnProps}
+        />
+      </HStack>
+      <Avatar name="Luna" marginLeft={3} />
+    </Flex>
   );
 }
 

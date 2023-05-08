@@ -6,6 +6,9 @@ const ButtonTheme = defineStyleConfig({
     sm: {
       height: 7,
       minWidth: 7,
+      fontSize: 12,
+      px: 2,
+      borderRadius: 3,
     },
     md: {
       height: 8,
