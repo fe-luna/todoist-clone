@@ -1,5 +1,7 @@
 export { AddIcon } from "./_add";
+export { ArrowDownIcon } from "./_arrow-down";
 export { CloseIcon } from "./_close";
+export { DotIcon } from "./_dot";
 export { FiltersIcon } from "./_filters";
 export { HomeIcon } from "./_home";
 export { InboxIcon } from "./_inbox";

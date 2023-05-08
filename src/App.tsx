@@ -8,6 +8,7 @@ import Layout from "layouts";
 import LoadingScreen from "components/loading-screen";
 import FiltersLabels from "pages/filters-labels";
 import Inbox from "pages/inbox";
+import Projects from "pages/projects";
 import Today from "pages/today";
 import Upcoming from "pages/upcoming";
 import { useStore } from "stores";
@@ -33,6 +34,7 @@ function App() {
       element: <Layout />,
       children: [
         { path: "project/:id", element: <Inbox /> },
+        { path: "projects/:status", element: <Projects /> },
         { path: "today", element: <Today /> },
         { path: "upcoming", element: <Upcoming /> },
         { path: "filters-labels", element: <FiltersLabels /> },

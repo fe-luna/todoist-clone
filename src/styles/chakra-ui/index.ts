@@ -1,4 +1,5 @@
 import { extendTheme } from "@chakra-ui/react";
+import Accordion from "./components/accordion";
 import Avatar from "./components/avatar";
 import Button from "./components/button";
 import Input from "./components/input";
@@ -11,6 +12,7 @@ const todoistTheme = extendTheme({
   styles,
   radii,
   components: {
+    Accordion,
     Avatar,
     Button,
     Input,
