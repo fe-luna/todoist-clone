@@ -6,7 +6,6 @@ import { LoginForm, LoginBranding } from "./login";
 import { SignupForm, SignupBranding } from "./signup";
 import { PasswordForm, PasswordBranding } from "./password";
 import styles from "./style.module.scss";
-import Oauth from "./oauth";
 
 const ACTIONS = ["login", "signup", "password"];
 type Action = (typeof ACTIONS)[number];
@@ -51,7 +50,6 @@ function Auth() {
       <Box className={styles.title}>{titleMap[action as Action]}</Box>
       <Box className={styles.main}>
         <Box className={styles.form}>
-          <Oauth />
           <Form />
         </Box>
         <Box className={styles.branding}>

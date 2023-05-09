@@ -14,7 +14,7 @@ function Oauth() {
     boxSize: 4,
   };
   return (
-    <div>
+    <Box paddingTop={10}>
       <VStack spacing={3}>
         <Button leftIcon={<GoogleIcon {...iconProps} />} {...btnProps}>
           Continue with Google
@@ -27,7 +27,7 @@ function Oauth() {
         </Button>
       </VStack>
       <Box my={4} borderTop="1px solid #f5f5f5" />
-    </div>
+    </Box>
   );
 }
 

@@ -1,27 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import dayjs from "dayjs";
+import timezone from "dayjs/plugin/timezone";
+import * as userSvc from "services/user";
 import poster from "assets/images/signup-video-poster.png";
 import video from "assets/images/signup-video.mp4";
 import img01 from "assets/images/signup-01.jpeg";
 import img02 from "assets/images/signup-02.jpeg";
 import img03 from "assets/images/signup-03.jpeg";
 import img04 from "assets/images/signup-04.jpeg";
+import BaseForm, { FormData } from "../base";
+
+dayjs.extend(timezone);
 
 function SignupForm() {
-  return <div>Singup</div>;
+  const handleSignup = async (formData: FormData) => {
+    const payload = {
+      ...formData,
+      accept_terms: true,
+      lang: "en",
+      permanent_login: true,
+      pkce_oauth: null,
+      sample_projects: null,
+      timezone: dayjs.tz.guess(),
+      web_session: true,
+    };
+    return await userSvc.register(payload);
+  };
+
+  return <BaseForm action="signup" onSubmit={handleSignup} />;
 }
 
-let SHOW_VIDEO = false;
-
 function SignupBranding() {
-  const [isShowVideo] = useState(SHOW_VIDEO);
-  useEffect(() => {
-    SHOW_VIDEO = !SHOW_VIDEO;
-  }, []);
-
+  const [isShowVideo] = useState(Math.random() < 0.5);
   if (isShowVideo) {
     return (
       <div>
-        <video poster={poster} src={video} />
+        <video poster={poster} src={video} autoPlay />
       </div>
     );
   }
