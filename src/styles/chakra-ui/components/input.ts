@@ -46,6 +46,20 @@ const variantContained = definePartsStyle((props) => {
   return {};
 });
 
+const variantUnstyled = definePartsStyle({
+  field: {
+    px: 0,
+    height: 6,
+    fontSize: 16,
+    fontWeight: 600,
+    _placeholder: {
+      color: "#757575",
+      fontWeight: 400,
+      opacity: 1,
+    },
+  },
+});
+
 const sizes = {
   sm: defineStyle({
     height: 7,
@@ -64,6 +78,7 @@ const InputTheme = defineMultiStyleConfig({
   },
   variants: {
     contained: variantContained,
+    unstyled: variantUnstyled,
   },
   defaultProps: {},
 });

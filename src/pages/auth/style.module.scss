@@ -1,7 +1,7 @@
 .container {
   width: 940px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 22px 0;
 }
 
 .logo {
@@ -13,8 +13,25 @@
 
 .title {
   max-width: 220px;
-  padding-top: 64px;
+  padding-top: 98px;
   font-size: 32px;
   line-height: 38px;
   font-weight: bold;
+}
+
+.main {
+  display: flex;
+}
+
+.form {
+  width: 400px;
+  padding-top: 40px;
+}
+
+.branding {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 136px;
 }

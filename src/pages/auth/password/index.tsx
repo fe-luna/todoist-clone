@@ -1,7 +1,12 @@
 import React from "react";
+import img from "assets/images/password-branding.png";
 
-function Password() {
+function PasswordForm() {
   return <div>Password</div>;
 }
 
-export default Password;
+function PasswordBranding() {
+  return <img src={img} alt="" />;
+}
+
+export { PasswordForm, PasswordBranding };

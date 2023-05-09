@@ -21,6 +21,7 @@ const ButtonTheme = defineStyleConfig({
       minWidth: 12,
       fontSize: 18,
       borderRadius: 8,
+      fontWeight: 700,
     },
   },
   variants: {

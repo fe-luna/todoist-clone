@@ -1,10 +1,12 @@
 import React, { FunctionComponent, useEffect } from "react";
+import { Box } from "@chakra-ui/react";
 import { useNavigate, useParams } from "react-router-dom";
 import { LogoAndText } from "components/illustration";
-import Login from "./login";
-import Signup from "./signup";
-import Password from "./password";
+import { LoginForm, LoginBranding } from "./login";
+import { SignupForm, SignupBranding } from "./signup";
+import { PasswordForm, PasswordBranding } from "./password";
 import styles from "./style.module.scss";
+import Oauth from "./oauth";
 
 const ACTIONS = ["login", "signup", "password"];
 type Action = (typeof ACTIONS)[number];
@@ -18,7 +20,8 @@ function Auth() {
       navigate("/auth/login", { replace: true });
     }
   }, []);
-  if (!isValidAction) {
+
+  if (!action || !isValidAction) {
     return null;
   }
 
@@ -27,21 +30,35 @@ function Auth() {
     signup: "Sign Up",
     password: "Forgot your password?",
   };
-  const compMap: Record<Action, FunctionComponent> = {
-    login: Login,
-    signup: Signup,
-    password: Password,
+  const formMap: Record<Action, FunctionComponent> = {
+    login: LoginForm,
+    signup: SignupForm,
+    password: PasswordForm,
   };
-  const Comp = compMap[action as Action];
+  const brandingMap: Record<Action, FunctionComponent> = {
+    login: LoginBranding,
+    signup: SignupBranding,
+    password: PasswordBranding,
+  };
+  const Form = formMap[action];
+  const Branding = brandingMap[action];
 
   return (
-    <div className={styles.container}>
-      <div className={styles.logo}>
+    <Box className={styles.container}>
+      <Box className={styles.logo}>
         <LogoAndText />
-      </div>
-      <div className={styles.title}>{titleMap[action as Action]}</div>
-      <Comp />
-    </div>
+      </Box>
+      <Box className={styles.title}>{titleMap[action as Action]}</Box>
+      <Box className={styles.main}>
+        <Box className={styles.form}>
+          <Oauth />
+          <Form />
+        </Box>
+        <Box className={styles.branding}>
+          <Branding />
+        </Box>
+      </Box>
+    </Box>
   );
 }
 
