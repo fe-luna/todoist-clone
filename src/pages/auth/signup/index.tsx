@@ -24,7 +24,7 @@ function SignupForm() {
       timezone: dayjs.tz.guess(),
       web_session: true,
     };
-    return await userSvc.register(payload);
+    await userSvc.register(payload);
   };
 
   return <BaseForm action="signup" onSubmit={handleSignup} />;

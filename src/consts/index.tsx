@@ -1,6 +1,7 @@
 export const STORAGE_KEY = {
   SIDEBAR_WIDTH: "sidebar_width",
   DEVICE_ID: "device_id",
+  USER_INFO: "user_info",
 };
 
 export const UI = {

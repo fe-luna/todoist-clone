@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, KeyboardEvent } from "react";
 import { NavLink } from "react-router-dom";
 import {
   Button,
@@ -31,6 +31,7 @@ function BaseForm(props: Props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isShowPwd, setIsShowPwd] = useBoolean();
+  const [submitErr, setSubmitErr] = useState<{ error: string }>();
   const isLogin = props.action === "login";
   const isSignup = props.action === "signup";
 
@@ -40,19 +41,33 @@ function BaseForm(props: Props) {
     const formData = { email, password };
     try {
       await props.onSubmit(formData);
-    } catch {}
+    } catch (err) {
+      setSubmitErr(err as { error: string });
+    }
     setLoading.off();
+  };
+
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === "Enter") {
+      handleSubmit();
+    }
   };
 
   return (
     <Box>
       <Oauth />
       <VStack spacing="18px">
+        {!!submitErr?.error && (
+          <Box color="primary.500" fontSize="xs" width="100%">
+            {submitErr.error}
+          </Box>
+        )}
         <FormControl>
           <FormLabel>Email</FormLabel>
           <Input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            onKeyDown={handleKeyDown}
             size="xs"
             variant="unstyled"
             placeholder="Enter your email..."
@@ -65,6 +80,7 @@ function BaseForm(props: Props) {
               type={isShowPwd ? "text" : "password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              onKeyDown={handleKeyDown}
               placeholder="Enter your password..."
             />
             <InputRightElement>

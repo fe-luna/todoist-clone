@@ -9,10 +9,17 @@ export function request(options: Options) {
   return fetch(path, {
     headers: {
       "content-type": "application/json",
+      "X-Csrftoken": String(Date.now()),
     },
     body: method === "POST" ? JSON.stringify(data) : "",
     method: method,
     mode: "cors",
     credentials: "include",
-  }).then((res) => res.json());
+  }).then(async (res) => {
+    const json = await res.json();
+    if (!res.ok) {
+      return Promise.reject(json);
+    }
+    return json;
+  });
 }
