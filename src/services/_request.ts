@@ -9,7 +9,8 @@ export function request(options: Options) {
   return fetch(path, {
     headers: {
       "content-type": "application/json",
-      "X-Csrftoken": String(Date.now()),
+      // todoist's API use timestamp as csrf token
+      "x-csrftoken": String(Date.now()),
     },
     body: method === "POST" ? JSON.stringify(data) : "",
     method: method,
