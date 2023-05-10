@@ -7,6 +7,7 @@ import {
   TodayIcon,
   UpcomingIcon,
 } from "components/icon";
+import { useStore } from "stores";
 import styles from "./style.module.scss";
 
 interface MenuItem {
@@ -17,10 +18,11 @@ interface MenuItem {
 }
 
 const Menu = () => {
+  const userInfo = useStore((state) => state.userInfo);
   const list: MenuItem[] = [
     {
       name: "Inbox",
-      path: "/app/project/xxxx",
+      path: `/app/project/${userInfo.inbox_project_id}`,
       leftElement: <InboxIcon />,
       count: 9,
     },

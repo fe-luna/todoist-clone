@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import dayjs from "dayjs";
 import timezone from "dayjs/plugin/timezone";
-import * as userSvc from "services/user";
+import { register } from "services/user";
 import poster from "assets/images/signup-video-poster.png";
 import video from "assets/images/signup-video.mp4";
 import img01 from "assets/images/signup-01.jpeg";
@@ -24,7 +24,7 @@ function SignupForm() {
       timezone: dayjs.tz.guess(),
       web_session: true,
     };
-    await userSvc.register(payload);
+    await register(payload);
   };
 
   return <BaseForm action="signup" onSubmit={handleSignup} />;

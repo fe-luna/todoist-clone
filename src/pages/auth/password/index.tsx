@@ -11,7 +11,7 @@ import {
   Link,
 } from "@chakra-ui/react";
 import { useBoolean } from "@chakra-ui/hooks";
-import * as userSvc from "services/user";
+import { sendResetPassword } from "services/user";
 import img from "assets/images/password-branding.png";
 
 function PasswordForm() {
@@ -21,7 +21,7 @@ function PasswordForm() {
     setLoading.on();
     const payload = { email };
     try {
-      const res = await userSvc.sendResetPassword(payload);
+      const res = await sendResetPassword(payload);
       console.log(res);
     } catch {}
     setLoading.off();

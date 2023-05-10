@@ -1,5 +1,7 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ChakraBaseProvider } from "@chakra-ui/react";
+import { todoistTheme } from "styles/chakra-ui";
 import Layout from "layouts";
 import FiltersLabels from "pages/filters-labels";
 import Auth from "pages/auth";
@@ -31,7 +33,11 @@ function App() {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <ChakraBaseProvider theme={todoistTheme}>
+      <RouterProvider router={router} />
+    </ChakraBaseProvider>
+  );
 }
 
 export default App;

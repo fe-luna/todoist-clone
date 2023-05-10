@@ -56,7 +56,7 @@ export interface UserInfo {
   inbox_project_id: string;
 }
 
-export function getUserInfo() {
+export function getUserInfo(): Promise<UserInfo> {
   const payload = {
     ...syncBaseParams,
     resource_types: ["user"],
@@ -66,5 +66,5 @@ export function getUserInfo() {
     path: "/API/v9.0/sync",
     method: "POST",
     data: payload,
-  });
+  }).then((res) => res.user);
 }

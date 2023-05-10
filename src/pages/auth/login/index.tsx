@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import localForage from "localforage";
 import { v4 as uuidv4 } from "uuid";
 import { STORAGE_KEY } from "consts";
-import * as userSvc from "services/user";
+import { login } from "services/user";
 import img from "assets/images/login-branding.png";
 import BaseForm, { FormData } from "../base";
 
@@ -22,7 +22,7 @@ function LoginForm() {
       pkce_oauth: null,
       web_session: true,
     };
-    await userSvc.login(payload);
+    await login(payload);
     navigate("/app/today");
   };
 

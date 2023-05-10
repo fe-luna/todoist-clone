@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { ArrowDownIcon, AddIcon, DotIcon } from "components/icon";
 import styles from "./style.module.scss";
+import { useStore } from "stores";
 
 interface ProjectItem {
   name: string;
@@ -19,20 +20,14 @@ interface ProjectItem {
 }
 
 const Projects = () => {
-  const list: ProjectItem[] = [
-    {
-      name: "Home 🏡",
-      path: "/app/project/2313962990",
-      leftElement: <DotIcon color="#b8b8b8" />,
-      count: 9,
-    },
-    {
-      name: "Test",
-      path: "/app/project/2313962991",
-      leftElement: <DotIcon color="#14aaf5" />,
-      count: 0,
-    },
-  ];
+  const projects = useStore((state) => state.projects);
+  const list: ProjectItem[] = projects.map((item) => ({
+    name: item.name,
+    path: `/app/project/${item.id}`,
+    // TODO color
+    leftElement: <DotIcon color="#b8b8b8" />,
+    count: 0,
+  }));
 
   return (
     <Accordion allowToggle defaultIndex={0} marginTop={4}>

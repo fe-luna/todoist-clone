@@ -11,16 +11,19 @@ import styles from "./style.module.scss";
 function Layout() {
   const navigate = useNavigate();
   const fetchUserInfo = useStore((state) => state.fetchUserInfo);
+  const fetchProjects = useStore((state) => state.fetchProjects);
   const getSidebarWidth = useStore((state) => state.getSidebarWidth);
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
-    Promise.all([
-      fetchUserInfo().catch((err) => {
+    const init = async () => {
+      await Promise.all([fetchUserInfo(), fetchProjects()]).catch((err) => {
+        console.error(err);
         navigate("/auth/login");
-        return Promise.reject(err);
-      }),
-      getSidebarWidth().catch(() => {}),
-    ]).then(() => setLoaded(true));
+      });
+      await getSidebarWidth().catch(() => {});
+      setLoaded(true);
+    };
+    init();
   }, []);
 
   if (!loaded) {
