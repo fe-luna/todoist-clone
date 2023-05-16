@@ -1,5 +1,6 @@
 import React from "react";
-import { Checkbox, Text } from "@chakra-ui/react";
+import { Box, Checkbox, Text } from "@chakra-ui/react";
+import ReactMarkdown from "react-markdown";
 import { Todo } from "services/todo";
 import styles from "./style.module.scss";
 import { CheckedIcon } from "components/icon";
@@ -17,9 +18,9 @@ const TodoList = (props: Props) => {
             <Checkbox icon={<CheckedIcon />} />
           </div>
           <div className={styles.main}>
-            <Text className={styles.title} noOfLines={4}>
-              {item.content}
-            </Text>
+            <Box className={styles.title} noOfLines={4}>
+              <ReactMarkdown children={item.content} linkTarget="_blank" />
+            </Box>
             <Text className={styles.description} noOfLines={1}>
               {item.description}
             </Text>
