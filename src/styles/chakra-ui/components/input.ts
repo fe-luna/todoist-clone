@@ -1,11 +1,11 @@
-import { inputAnatomy as parts } from "@chakra-ui/anatomy";
+import { inputAnatomy } from "@chakra-ui/anatomy";
 import {
   createMultiStyleConfigHelpers,
   defineStyle,
 } from "@chakra-ui/styled-system";
 
 const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(parts.keys);
+  createMultiStyleConfigHelpers(inputAnatomy.keys);
 
 const variantContained = definePartsStyle((props) => {
   const { colorScheme } = props;

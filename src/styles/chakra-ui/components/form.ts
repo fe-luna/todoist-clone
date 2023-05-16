@@ -1,7 +1,9 @@
-import { formAnatomy as parts } from "@chakra-ui/anatomy";
+import { formAnatomy } from "@chakra-ui/anatomy";
 import { createMultiStyleConfigHelpers } from "@chakra-ui/react";
 
-const { defineMultiStyleConfig } = createMultiStyleConfigHelpers(parts.keys);
+const { defineMultiStyleConfig } = createMultiStyleConfigHelpers(
+  formAnatomy.keys
+);
 
 const FormControlTheme = defineMultiStyleConfig({
   baseStyle: {

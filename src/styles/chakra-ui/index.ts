@@ -7,6 +7,7 @@ import Form from "./components/form";
 import FormLabel from "./components/form-label";
 import Input from "./components/input";
 import Link from "./components/link";
+import Menu from "./components/menu";
 import styles from "./foundations/global-styles";
 import colors from "./foundations/colors";
 import radii from "./foundations/radius";
@@ -24,6 +25,7 @@ const todoistTheme = extendTheme({
     Form,
     FormLabel,
     Link,
+    Menu,
   },
 });
 

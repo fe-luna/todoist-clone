@@ -1,8 +1,8 @@
-import { accordionAnatomy as parts } from "@chakra-ui/anatomy";
+import { accordionAnatomy } from "@chakra-ui/anatomy";
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 
 const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(parts.keys);
+  createMultiStyleConfigHelpers(accordionAnatomy.keys);
 
 const baseStyle = definePartsStyle({
   container: {

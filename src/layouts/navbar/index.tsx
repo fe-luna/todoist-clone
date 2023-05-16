@@ -2,7 +2,6 @@ import React from "react";
 import {
   IconButton,
   Button,
-  Avatar,
   ButtonProps,
   Flex,
   Spacer,
@@ -18,6 +17,7 @@ import {
   StarIcon,
 } from "components/icon";
 import Search from "components/search";
+import NavbarMenu from "./menu";
 import styles from "./style.module.scss";
 
 function Navbar() {
@@ -78,7 +78,7 @@ function Navbar() {
           {...btnProps}
         />
       </HStack>
-      <Avatar name="Luna" marginLeft={3} />
+      <NavbarMenu />
     </Flex>
   );
 }
