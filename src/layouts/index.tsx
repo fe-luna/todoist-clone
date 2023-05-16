@@ -12,14 +12,17 @@ function Layout() {
   const navigate = useNavigate();
   const fetchUserInfo = useStore((state) => state.fetchUserInfo);
   const fetchProjects = useStore((state) => state.fetchProjects);
+  const fetchTodos = useStore((state) => state.fetchTodos);
   const getSidebarWidth = useStore((state) => state.getSidebarWidth);
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     const init = async () => {
-      await Promise.all([fetchUserInfo(), fetchProjects()]).catch((err) => {
-        console.error(err);
-        navigate("/auth/login");
-      });
+      await Promise.all([fetchUserInfo(), fetchProjects(), fetchTodos()]).catch(
+        (err) => {
+          console.error(err);
+          navigate("/auth/login");
+        }
+      );
       await getSidebarWidth().catch(() => {});
       setLoaded(true);
     };

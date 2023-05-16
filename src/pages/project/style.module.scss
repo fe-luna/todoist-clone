@@ -1,0 +1,19 @@
+.container {
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 36px 50px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding-bottom: 8px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+}

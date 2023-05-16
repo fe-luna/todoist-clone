@@ -1,0 +1,30 @@
+.list {
+}
+
+.item {
+  display: flex;
+  padding: 4px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.checkbox {
+  padding-top: 4px;
+}
+
+.main {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.title {
+  color: #202020;
+  line-height: 1.65;
+  margin-bottom: 4px;
+}
+
+.description {
+  font-size: 12px;
+  line-height: 18px;
+  word-break: break-all;
+  color: #808080;
+}

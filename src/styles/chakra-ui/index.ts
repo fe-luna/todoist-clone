@@ -2,6 +2,7 @@ import { extendTheme } from "@chakra-ui/react";
 import Accordion from "./components/accordion";
 import Avatar from "./components/avatar";
 import Button from "./components/button";
+import Checkbox from "./components/checkbox";
 import Form from "./components/form";
 import FormLabel from "./components/form-label";
 import Input from "./components/input";
@@ -18,6 +19,7 @@ const todoistTheme = extendTheme({
     Accordion,
     Avatar,
     Button,
+    Checkbox,
     Input,
     Form,
     FormLabel,

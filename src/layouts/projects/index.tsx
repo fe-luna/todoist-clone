@@ -20,7 +20,7 @@ interface ProjectItem {
 }
 
 const Projects = () => {
-  const projects = useStore((state) => state.projects);
+  const projects = useStore((state) => state.getProjectsExceptInbox());
   const list: ProjectItem[] = projects.map((item) => ({
     name: item.name,
     path: `/app/project/${item.id}`,
