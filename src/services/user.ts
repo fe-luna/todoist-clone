@@ -38,6 +38,20 @@ export function register(payload: RegisterPayload) {
   });
 }
 
+export interface UpdatePayload {
+  full_name?: string;
+  onboarding_use_cases?: string[];
+  onboarding_level?: string;
+}
+
+export function update(payload: UpdatePayload) {
+  return request({
+    path: "/API/v9.0/user/update",
+    method: "POST",
+    data: payload,
+  });
+}
+
 export interface SendResetPassword {
   email: string;
 }
@@ -49,6 +63,7 @@ export function sendResetPassword(payload: SendResetPassword) {
     data: payload,
   });
 }
+
 export interface UserInfo {
   id: string;
   email: string;

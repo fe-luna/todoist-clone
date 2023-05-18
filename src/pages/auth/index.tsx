@@ -26,7 +26,7 @@ function Auth() {
 
   const titleMap: Record<Action, string> = {
     login: "Log in",
-    signup: "Sign Up",
+    signup: "Sign up",
     password: "Forgot your password?",
   };
   const formMap: Record<Action, FunctionComponent> = {
