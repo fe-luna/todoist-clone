@@ -12,7 +12,7 @@ export interface Todo {
   content: string;
   day_order: number;
   description: string;
-  due: string | null;
+  due: { date: string; is_recurring: false; string: string } | null;
   duration: string | null;
   id: string;
   is_deleted: boolean;

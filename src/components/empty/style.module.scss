@@ -1,0 +1,41 @@
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 15px;
+}
+
+.img {
+  height: 273px;
+}
+
+.title {
+  margin: 8px 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #202020;
+}
+
+.subTitle {
+  width: 264px;
+  font-size: 14px;
+  color: gray;
+  text-align: center;
+}
+
+.tip {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #db4c3f;
+  font-size: 14px;
+}
+
+.tipLink {
+  color: #db4c3f;
+  font-size: 14px;
+  text-decoration: underline;
+}

@@ -1,10 +1,13 @@
 import { StateCreator } from "zustand";
 import { getTodos, Todo } from "services/todo";
+import dayjs from "dayjs";
 
 export interface TodoState {
   todos: Todo[];
   fetchTodos: () => Promise<Todo[]>;
   getTodosByProject: (projectId: string) => Todo[];
+  getTodayTodos: () => Todo[];
+  getOverdueTodos: () => Todo[];
 }
 
 export const createTodoSlice: StateCreator<TodoState> = (set, get) => ({
@@ -19,5 +22,17 @@ export const createTodoSlice: StateCreator<TodoState> = (set, get) => ({
     return todos
       .filter((item) => item.project_id === projectId)
       .sort((a, b) => a.child_order - b.child_order);
+  },
+  getTodayTodos: () => {
+    const todos = get().todos;
+    const today = dayjs().format("YYYY-MM-DD");
+    return todos.filter((item) => item.due?.date === today);
+  },
+  getOverdueTodos: () => {
+    const todos = get().todos;
+    const today = dayjs().startOf("d");
+    return todos.filter(
+      (item) => !!item.due?.date && dayjs(item.due.date).isBefore(today)
+    );
   },
 });

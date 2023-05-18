@@ -19,16 +19,20 @@
   line-height: 25px;
 }
 
-.notFound {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.subTitle {
+  color: grey;
+  margin-left: 6px;
+  font-size: 12px;
+  font-weight: 400;
 }
 
-.notFoundTitle {
-  margin: 8px 0 30px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #202020;
+.section {
+  margin-bottom: 30px;
+}
+
+.sectionTitle {
+  font-size: 14px;
+  font-weight: 700;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 6px 0 5px;
 }
