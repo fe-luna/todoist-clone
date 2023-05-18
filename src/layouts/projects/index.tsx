@@ -9,8 +9,9 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 import { ArrowDownIcon, AddIcon, DotIcon } from "components/icon";
-import styles from "./style.module.scss";
 import { useStore } from "stores";
+import { PROJECT_MENU_COLOR } from "consts";
+import styles from "./style.module.scss";
 
 interface ProjectItem {
   name: string;
@@ -24,8 +25,9 @@ const Projects = () => {
   const list: ProjectItem[] = projects.map((item) => ({
     name: item.name,
     path: `/app/project/${item.id}`,
-    // TODO color
-    leftElement: <DotIcon color="#b8b8b8" />,
+    leftElement: (
+      <DotIcon color={PROJECT_MENU_COLOR[item.color?.toUpperCase()]} />
+    ),
     count: 0,
   }));
 
