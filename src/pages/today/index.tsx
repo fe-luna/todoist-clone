@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, ButtonProps } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import dayjs from "dayjs";
 import { useStore } from "stores";
 import TodoList from "components/todo-list";

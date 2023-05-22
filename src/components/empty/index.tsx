@@ -49,11 +49,16 @@ const Empty = (props: Props) => {
 
   return (
     <div className={styles.wrapper}>
-      <img className={styles.img} src={content.img} />
+      <img className={styles.img} src={content.img} alt="" />
       <div className={styles.title}>{content.title}</div>
       <div className={styles.subTitle}>{content.subTitle}</div>
       <div className={styles.tip}>
-        <a className={styles.tipLink} href={content.tipLink} target="_blank">
+        <a
+          className={styles.tipLink}
+          href={content.tipLink}
+          target="_blank"
+          rel="noreferrer"
+        >
           <QuestionIcon boxSize={5} marginRight={1} />
           {content.tipText}
         </a>

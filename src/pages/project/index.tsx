@@ -24,7 +24,7 @@ function Project() {
   if (!project) {
     return (
       <div className={styles.notFound}>
-        <img src={notFoundImg} />
+        <img src={notFoundImg} alt="not found" />
         <div className={styles.notFoundTitle}>Project not found.</div>
         <Button colorScheme="primary" onClick={toToday}>
           Back to Home view

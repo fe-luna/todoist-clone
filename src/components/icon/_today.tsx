@@ -21,7 +21,7 @@ const TodayIcon = (props: IconProps) => (
         transform="translate(4 2)"
       >
         <tspan x="8" y="15" textAnchor="middle">
-          {dayjs().date()}
+          {dayjs().format("DD")}
         </tspan>
       </text>
     </g>
