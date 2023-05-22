@@ -9,6 +9,7 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 import { ArrowDownIcon, AddIcon, DotIcon } from "components/icon";
+import AddProject from "components/add-project";
 import { useStore } from "stores";
 import { PROJECT_MENU_COLOR } from "consts";
 import styles from "./style.module.scss";
@@ -41,13 +42,15 @@ const Projects = () => {
           }
         >
           <div className={styles.titleText}>Projects</div>
-          <IconButton
-            aria-label="Add project"
-            icon={<AddIcon boxSize={5} />}
-            variant="ghost"
-            size="sm"
-            color="#666"
-          />
+          <AddProject>
+            <IconButton
+              aria-label="Add project"
+              icon={<AddIcon boxSize={5} />}
+              variant="ghost"
+              size="sm"
+              color="#666"
+            />
+          </AddProject>
           <AccordionButton>
             <ArrowDownIcon boxSize={4} />
           </AccordionButton>
