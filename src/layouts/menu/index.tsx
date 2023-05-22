@@ -19,18 +19,19 @@ interface MenuItem {
 
 const Menu = () => {
   const userInfo = useStore((state) => state.userInfo);
+  const todosCount = useStore((state) => state.getTodosCount());
   const list: MenuItem[] = [
     {
       name: "Inbox",
       path: `/app/project/${userInfo.inbox_project_id}`,
       leftElement: <InboxIcon />,
-      count: 9,
+      count: todosCount[userInfo.inbox_project_id],
     },
     {
       name: "Today",
       path: "/app/today",
       leftElement: <TodayIcon />,
-      count: 0,
+      count: todosCount.today,
     },
     {
       name: "Upcoming",

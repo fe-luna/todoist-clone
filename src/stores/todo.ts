@@ -6,6 +6,7 @@ export interface TodoState {
   todos: Todo[];
   fetchTodos: () => Promise<Todo[]>;
   getTodosByProject: (projectId: string) => Todo[];
+  getTodosCount: () => Record<string, number>;
   getTodayTodos: () => Todo[];
   getOverdueTodos: () => Todo[];
 }
@@ -22,6 +23,17 @@ export const createTodoSlice: StateCreator<TodoState> = (set, get) => ({
     return todos
       .filter((item) => item.project_id === projectId)
       .sort((a, b) => a.child_order - b.child_order);
+  },
+  getTodosCount: () => {
+    const todos = get().todos;
+    const count: Record<string, number> = {};
+    todos.forEach((todo) => {
+      count[todo.project_id] = (count[todo.project_id] || 0) + 1;
+    });
+    const todayTodos = get().getTodayTodos();
+    const overdueTodos = get().getOverdueTodos();
+    count.today = todayTodos.length + overdueTodos.length;
+    return count;
   },
   getTodayTodos: () => {
     const todos = get().todos;

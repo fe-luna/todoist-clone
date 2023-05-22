@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { MouseEvent, ReactNode, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import cx from "classnames";
 import {
@@ -23,25 +23,37 @@ interface ProjectItem {
 
 const Projects = () => {
   const projects = useStore((state) => state.getProjectsExceptInbox());
+  const todosCount = useStore((state) => state.getTodosCount());
   const list: ProjectItem[] = projects.map((item) => ({
     name: item.name,
     path: `/app/project/${item.id}`,
     leftElement: (
       <DotIcon color={PROJECT_MENU_COLOR[item.color?.toUpperCase()]} />
     ),
-    count: 0,
+    count: todosCount[item.id] || 0,
   }));
+
+  // prevent navigating when click buttons
+  const clickableRef = useRef(null);
+  const handlePrevent = (e: MouseEvent<HTMLElement>) => {
+    if (e.target !== clickableRef.current) {
+      e.preventDefault();
+    }
+  };
 
   return (
     <Accordion allowToggle defaultIndex={0} marginTop={4}>
       <AccordionItem>
         <NavLink
           to="/app/projects/active"
+          onClick={handlePrevent}
           className={({ isActive }) =>
             cx(styles.title, styles.link, isActive && styles.linkActive)
           }
         >
-          <div className={styles.titleText}>Projects</div>
+          <div className={styles.titleText} ref={clickableRef}>
+            Projects
+          </div>
           <AddProject>
             <IconButton
               aria-label="Add project"

@@ -2,7 +2,6 @@ import React, {
   ReactElement,
   Fragment,
   cloneElement,
-  SyntheticEvent,
   ChangeEvent,
   useState,
 } from "react";
@@ -33,10 +32,6 @@ interface Props {
 
 function AddProject(props: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const handleOpen = (e: SyntheticEvent) => {
-    e.preventDefault();
-    onOpen();
-  };
 
   const [name, setName] = useState("");
   const handleInput = (e: ChangeEvent<HTMLInputElement>) =>
@@ -71,7 +66,7 @@ function AddProject(props: Props) {
 
   return (
     <Fragment>
-      {cloneElement(props.children, { onClick: handleOpen })}
+      {cloneElement(props.children, { onClick: onOpen })}
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
