@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import { request } from "./_request";
 import { syncBaseParams } from "./_base";
 
@@ -37,4 +38,36 @@ export function getTodos(): Promise<Todo[]> {
     method: "POST",
     data: payload,
   }).then((res) => res.items);
+}
+
+export interface CreateTodoPayload {
+  content: string;
+  description: string;
+  priority: number;
+  project_id: string;
+  user_id: string;
+}
+
+export function createTodo(_payload: CreateTodoPayload): Promise<void> {
+  const payload = {
+    ...syncBaseParams,
+    resource_types: ["all"],
+    commands: [
+      {
+        type: "item_add",
+        uuid: uuidv4(),
+        args: {
+          ..._payload,
+          added_at: new Date().toISOString(),
+          added_by_uid: _payload.user_id,
+        },
+      },
+    ],
+  };
+
+  return request({
+    path: "/API/v9.0/sync",
+    method: "POST",
+    data: payload,
+  });
 }

@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 import { useStore } from "stores";
 import TodoList from "components/todo-list";
 import Empty from "components/empty";
+import AddTodoInline from "components/add-todo-inline";
 import { OptionIcon } from "components/icon";
 import styles from "./style.module.scss";
 
@@ -36,6 +37,7 @@ function Today() {
           "D MMM"
         )} ‧ Today ‧ ${today.format("ddd")}`}</div>
         <TodoList todos={todayTodos} />
+        <AddTodoInline />
       </div>
     </div>
   );

@@ -1,0 +1,43 @@
+.container {
+  padding-top: 4px;
+}
+
+.inputTitle {
+  padding: 0;
+  height: 25px;
+  line-height: 25px;
+  font-weight: bold;
+  color: #202020;
+  font-size: 20px;
+
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+.inputTitleSmall {
+  height: 23px;
+  line-height: 23px;
+  font-size: 14px;
+}
+
+.tag {
+  font-size: 10px;
+  background-color: #faead1;
+  color: #8f4700;
+  letter-spacing: 1px;
+  padding: 1px 4px;
+}
+
+.tools {
+  margin: 10px 0 14px;
+}
+
+.divider {
+  margin: 0 -16px;
+  border-color: #ddd;
+}
+
+.dividerSmall {
+  margin: 0 -10px;
+}

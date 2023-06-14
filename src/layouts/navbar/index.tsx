@@ -17,6 +17,7 @@ import {
   StarIcon,
 } from "components/icon";
 import Search from "components/search";
+import AddTodoModal from "components/add-todo-modal";
 import NavbarMenu from "./menu";
 import styles from "./style.module.scss";
 
@@ -54,7 +55,9 @@ function Navbar() {
         Upgrade to Pro
       </Button>
       <HStack spacing="5px">
-        <IconButton aria-label="Add task" icon={<AddIcon />} {...btnProps} />
+        <AddTodoModal>
+          <IconButton aria-label="Add task" icon={<AddIcon />} {...btnProps} />
+        </AddTodoModal>
         <Button
           leftIcon={<ProductivityIcon />}
           px={1.5}

@@ -1,12 +1,13 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button, ButtonProps, HStack, IconButton } from "@chakra-ui/react";
 import { useStore } from "stores";
 import TodoList from "components/todo-list";
 import { CommentIcon, MoreIcon, OptionIcon } from "components/icon";
+import Empty from "components/empty";
+import AddTodoInline from "components/add-todo-inline";
 import notFoundImg from "assets/images/project-not-found.jpg";
 import styles from "./style.module.scss";
-import Empty from "components/empty";
 
 function Project() {
   const { projectId } = useParams<{ projectId: string }>();
@@ -47,8 +48,18 @@ function Project() {
           <IconButton aria-label="more" icon={<MoreIcon />} {...btnProps} />
         </HStack>
       </div>
-      {isEmpty && <Empty page={isInbox ? "inbox" : "project"} />}
-      {!isEmpty && <TodoList todos={todos} />}
+      {isEmpty && (
+        <Fragment>
+          <AddTodoInline />
+          <Empty page={isInbox ? "inbox" : "project"} />
+        </Fragment>
+      )}
+      {!isEmpty && (
+        <Fragment>
+          <TodoList todos={todos} />
+          <AddTodoInline />
+        </Fragment>
+      )}
     </div>
   );
 }

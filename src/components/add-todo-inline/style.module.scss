@@ -1,0 +1,23 @@
+@use "src/styles/color.scss";
+
+.wrapper {
+  padding-top: 4px;
+  cursor: pointer;
+  color: gray;
+
+  &:hover {
+    color: color.$primary;
+  }
+}
+
+.text {
+  margin-left: 6px;
+  font-size: 14px;
+}
+
+.addContainer {
+  margin-top: -1px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 4px 10px 10px;
+}

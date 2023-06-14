@@ -45,9 +45,6 @@ function AddProject(props: Props) {
   const fetchProjects = useStore((state) => state.fetchProjects);
   const [loading, setLoading] = useState(false);
   const handleSubmit = async () => {
-    if (loading) {
-      return;
-    }
     setLoading(true);
     try {
       await addProject({

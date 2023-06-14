@@ -32,3 +32,10 @@ export const PROJECT_MENU_COLOR: Record<string, string> = {
   GREY: "rgb(184, 184, 184)",
   TAUPE: "rgb(204, 172, 147)",
 };
+
+export const PRIORITY = {
+  P1: 1,
+  P2: 2,
+  P3: 3,
+  P4: 4,
+};
