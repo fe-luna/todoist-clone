@@ -4,6 +4,7 @@ import {
   RouterProvider,
   Navigate,
 } from "react-router-dom";
+import { ChakraProvider } from "@chakra-ui/react";
 import Layout from "./layouts";
 import FiltersLabels from "./pages/filters-labels";
 import Inbox from "./pages/inbox";
@@ -28,7 +29,11 @@ function App() {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <ChakraProvider>
+      <RouterProvider router={router} />
+    </ChakraProvider>
+  );
 }
 
 export default App;
