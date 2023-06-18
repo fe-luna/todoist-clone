@@ -1,18 +1,16 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useMemo } from "react";
 import { Resizable, ResizeCallback } from "re-resizable";
-import localForage from "localforage";
-import { STORAGE_KEY, UI } from "consts";
+import { UI } from "consts";
+import { useStore } from "stores";
 import styles from "./style.module.scss";
 
 function Sidebar() {
-  const [width, setWidth] = useState(0);
-  useEffect(() => {
-    localForage.getItem<number>(STORAGE_KEY.SIDEBAR_WIDTH).then((res) => {
-      setWidth(res || UI.SIDEBAR_DEFAULT_WIDTH);
-    });
-  }, []);
-
-  const defaultSize = useMemo(() => ({ width, height: "auto" }), [width]);
+  const sidebarWidth = useStore((state) => state.sidebarWidth);
+  const setSidebarWidth = useStore((state) => state.setSidebarWidth);
+  const defaultSize = useMemo(
+    () => ({ width: sidebarWidth, height: "auto" }),
+    []
+  );
   const handleClasses = useMemo(() => ({ right: styles.handle }), []);
   const enable = useMemo(
     () => ({
@@ -28,12 +26,8 @@ function Sidebar() {
     []
   );
   const handleResize = useCallback<ResizeCallback>((event, direction, ref) => {
-    localForage.setItem(STORAGE_KEY.SIDEBAR_WIDTH, ref.offsetWidth);
+    setSidebarWidth(ref.offsetWidth);
   }, []);
-
-  if (!width) {
-    return null;
-  }
 
   return (
     <Resizable

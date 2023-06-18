@@ -1,17 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   createBrowserRouter,
   RouterProvider,
   Navigate,
 } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
-import Layout from "./layouts";
-import FiltersLabels from "./pages/filters-labels";
-import Inbox from "./pages/inbox";
-import Today from "./pages/today";
-import Upcoming from "./pages/upcoming";
+import Layout from "layouts";
+import FiltersLabels from "pages/filters-labels";
+import Inbox from "pages/inbox";
+import Today from "pages/today";
+import Upcoming from "pages/upcoming";
+import { useStore } from "stores";
 
 function App() {
+  const getSidebarWidth = useStore((state) => state.getSidebarWidth);
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    getSidebarWidth().then(() => setLoaded(true));
+  }, []);
+
+  if (!loaded) {
+    return null;
+  }
+
   const router = createBrowserRouter([
     {
       path: "/",
