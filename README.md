@@ -36,11 +36,9 @@ Add todo modal:
 
 # Running locally
 
-The goal of building this project is to only build the front-end part, then directly request Todist's API through the proxy, and it works.
+The objective of this project is solely focused on the front-end part, then directly request Todist's API through the proxy, and it works.
 
-But Todist uses captcha([Cloudflare Turnstile](https://www.cloudflare.com/en-gb/products/turnstile/?utm_source=turnstile&utm_campaign=widget)) when logging in from July 2023, it's very difficult to log in directly through the proxy now.
-
-In order to be able to run locally, please follow the steps below.
+You can run locally as follows:
 
 ```bash
 git clone git@github.com:fe-luna/todoist-clone.git
@@ -49,18 +47,4 @@ npm i
 npm start
 ```
 
-Visit <https://todoist.com/auth/login>, run the code in the DevTools to retrieve the captcha:
-
-```js
-// Please copy the captcha string manually
-document.querySelector("input[name=cf-turnstile-response]").value;
-```
-
-Visit <http://localhost:3000/auth/login>, run the code in the DevTools to apply the captcha:
-
-```js
-// replace the THE_CAPTCHA_STRING with the conent retrieved previous step
-window._captcha = THE_CAPTCHA_STRING;
-```
-
-Log in as usual and it should work now.
+The page will open automatically after startup. Enjoy it.
